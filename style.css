@@ -1,4 +1,4 @@
-/* Style CSS pour Michel Linktree */
+/* Style CSS pour Michel Linktree - Version simplifiée */
 
 * {
     margin: 0;
@@ -8,7 +8,7 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-color: #f4f4f4;
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -17,14 +17,13 @@ body {
 }
 
 .container {
-    background: rgba(255, 255, 255, 0.95);
+    background: white;
     padding: 2rem;
-    border-radius: 20px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     max-width: 400px;
     width: 90%;
-    backdrop-filter: blur(10px);
 }
 
 header {
@@ -32,25 +31,23 @@ header {
 }
 
 .profile-img {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     margin: 0 auto 1rem;
     display: block;
-    border: 4px solid #fff;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border: 3px solid #ddd;
 }
 
 h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin-bottom: 0.5rem;
-    color: #2c3e50;
-    font-weight: 700;
+    color: #333;
 }
 
 header p {
-    color: #7f8c8d;
-    font-size: 1rem;
+    color: #666;
+    font-size: 0.9rem;
     margin-bottom: 1rem;
 }
 
@@ -61,45 +58,150 @@ header p {
 }
 
 .link-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.75rem;
-    padding: 1rem 1.5rem;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: block;
+    padding: 0.8rem 1.2rem;
+    background-color: #007bff;
     color: white;
     text-decoration: none;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    border-radius: 5px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
 }
 
 .link-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
-    background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
-}
-
-.link-button:active {
-    transform: translateY(0);
-}
-
-.link-icon {
-    font-size: 1.2rem;
-    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+    background-color: #0056b3;
 }
 
 footer {
     margin-top: 2rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid #ecf0f1;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
 }
 
 footer p {
-    color: #95a5a6;
+    color: #999;
+    font-size: 0.8rem;
+}
+
+/* Interface de personnalisation */
+.customization-panel {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    max-width: 300px;
+    z-index: 1000;
+    transform: translateX(320px);
+    transition: transform 0.3s ease;
+}
+
+.customization-panel.open {
+    transform: translateX(0);
+}
+
+.customize-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 0.8rem;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    z-index: 1001;
+    transition: all 0.3s ease;
+}
+
+.customize-toggle:hover {
+    background: #0056b3;
+    transform: scale(1.1);
+}
+
+.customization-panel h3 {
+    margin-bottom: 1rem;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-size: 0.9rem;
+    color: #555;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.form-group textarea {
+    resize: vertical;
+    height: 60px;
+}
+
+.color-input {
+    height: 40px !important;
+    padding: 0.2rem !important;
+    cursor: pointer;
+}
+
+.btn-group {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
     font-size: 0.85rem;
+    flex: 1;
+}
+
+.btn-primary {
+    background: #007bff;
+    color: white;
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.close-panel {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #999;
+}
+
+.close-panel:hover {
+    color: #333;
 }
 
 /* Responsive design */
@@ -110,43 +212,18 @@ footer p {
     }
     
     h1 {
-        font-size: 1.75rem;
+        font-size: 1.6rem;
     }
     
-    .link-button {
-        padding: 0.875rem 1.25rem;
-        font-size: 0.95rem;
+    .customization-panel {
+        right: 10px;
+        top: 10px;
+        max-width: calc(100vw - 20px);
+        transform: translateX(calc(100vw - 10px));
     }
     
-    .profile-img {
-        width: 100px;
-        height: 100px;
+    .customize-toggle {
+        right: 10px;
+        top: 10px;
     }
 }
-
-/* Animation pour le chargement */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.container {
-    animation: fadeIn 0.6s ease-out;
-}
-
-.link-button {
-    animation: fadeIn 0.6s ease-out;
-    animation-fill-mode: both;
-}
-
-.link-button:nth-child(1) { animation-delay: 0.1s; }
-.link-button:nth-child(2) { animation-delay: 0.2s; }
-.link-button:nth-child(3) { animation-delay: 0.3s; }
-.link-button:nth-child(4) { animation-delay: 0.4s; }
-.link-button:nth-child(5) { animation-delay: 0.5s; }
