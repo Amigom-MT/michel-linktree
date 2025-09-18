@@ -3,128 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Michel Linktree - Interface de personnalisation</title>
+    <title>Michel Linktree</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Bouton pour basculer en mode admin -->
-    <button id="admin-toggle" class="admin-toggle" title="Mode administrateur">
-        <i class="fas fa-cog"></i>
+    <!-- Bouton de personnalisation -->
+    <button class="customize-toggle" id="customizeToggle" title="Personnaliser la page">
+        ⚙️
     </button>
 
-    <!-- Interface d'administration -->
-    <div id="admin-panel" class="admin-panel hidden">
-        <div class="admin-header">
-            <h2><i class="fas fa-palette"></i> Personnalisation Linktree</h2>
-            <button id="admin-close" class="close-btn">
-                <i class="fas fa-times"></i>
-            </button>
+    <!-- Panneau de personnalisation -->
+    <div class="customization-panel" id="customizationPanel">
+        <button class="close-panel" id="closePanel">&times;</button>
+        <h3>Personnaliser votre page</h3>
+        
+        <div class="form-group">
+            <label for="pageTitle">Titre de la page:</label>
+            <input type="text" id="pageTitle" value="Michel Linktree">
         </div>
         
-        <div class="admin-content">
-            <!-- Section profil -->
-            <div class="admin-section">
-                <h3><i class="fas fa-user"></i> Profil</h3>
-                <div class="form-group">
-                    <label for="profile-name">Nom :</label>
-                    <input type="text" id="profile-name" value="Michel Linktree">
-                </div>
-                <div class="form-group">
-                    <label for="profile-description">Description :</label>
-                    <input type="text" id="profile-description" value="Bienvenue sur ma page de liens">
-                </div>
-                <div class="form-group">
-                    <label for="profile-image">URL de l'image :</label>
-                    <input type="url" id="profile-image" value="https://via.placeholder.com/150">
-                </div>
-            </div>
-
-            <!-- Section réseaux sociaux populaires -->
-            <div class="admin-section">
-                <h3><i class="fas fa-share-alt"></i> Réseaux sociaux populaires</h3>
-                <div class="social-networks-grid" id="popular-networks">
-                    <!-- Généré dynamiquement par JavaScript -->
-                </div>
-            </div>
-
-            <!-- Section liens personnalisés -->
-            <div class="admin-section">
-                <h3><i class="fas fa-link"></i> Liens personnalisés</h3>
-                <div class="custom-links-container" id="custom-links">
-                    <!-- Liens personnalisés dynamiques -->
-                </div>
-                <button id="add-custom-link" class="add-btn">
-                    <i class="fas fa-plus"></i> Ajouter un lien personnalisé
-                </button>
-            </div>
-
-            <!-- Section ordre des liens -->
-            <div class="admin-section">
-                <h3><i class="fas fa-sort"></i> Ordre des liens</h3>
-                <div id="sortable-links" class="sortable-links">
-                    <!-- Liste ordonnée des liens actifs -->
-                </div>
-            </div>
-
-            <!-- Boutons d'action -->
-            <div class="admin-actions">
-                <button id="save-config" class="save-btn">
-                    <i class="fas fa-save"></i> Sauvegarder
-                </button>
-                <button id="reset-config" class="reset-btn">
-                    <i class="fas fa-undo"></i> Réinitialiser
-                </button>
-                <button id="export-config" class="export-btn">
-                    <i class="fas fa-download"></i> Exporter la configuration
-                </button>
-                <input type="file" id="import-config" accept=".json" style="display: none;">
-                <button id="import-config-btn" class="import-btn">
-                    <i class="fas fa-upload"></i> Importer une configuration
-                </button>
-            </div>
+        <div class="form-group">
+            <label for="pageDescription">Description:</label>
+            <textarea id="pageDescription" placeholder="Votre description...">Bienvenue sur ma page de liens</textarea>
+        </div>
+        
+        <div class="form-group">
+            <label for="backgroundColor">Couleur de fond:</label>
+            <input type="color" id="backgroundColor" class="color-input" value="#f4f4f4">
+        </div>
+        
+        <div class="form-group">
+            <label for="buttonColor">Couleur des boutons:</label>
+            <input type="color" id="buttonColor" class="color-input" value="#007bff">
+        </div>
+        
+        <div class="form-group">
+            <label for="profileImage">Image de profil (URL):</label>
+            <input type="url" id="profileImage" placeholder="https://exemple.com/image.jpg" value="https://via.placeholder.com/100">
+        </div>
+        
+        <div class="btn-group">
+            <button class="btn btn-primary" id="saveSettings">Sauvegarder</button>
+            <button class="btn btn-secondary" id="resetSettings">Réinitialiser</button>
         </div>
     </div>
 
-    <!-- Page principale du Linktree -->
-    <div class="container" id="linktree-container">
+    <!-- Contenu principal -->
+    <div class="container">
         <header>
-            <img id="profile-img" src="https://via.placeholder.com/150" alt="Photo de profil" class="profile-img">
-            <h1 id="profile-title">Michel Linktree</h1>
-            <p id="profile-desc">Bienvenue sur ma page de liens</p>
+            <img src="https://via.placeholder.com/100" alt="Photo de profil" class="profile-img" id="profileImg">
+            <h1 id="mainTitle">Michel Linktree</h1>
+            <p id="mainDescription">Bienvenue sur ma page de liens</p>
         </header>
         
-        <main>
-            <div class="links-container" id="links-container">
-                <!-- Les liens seront générés dynamiquement -->
-            </div>
-        </main>
+        <div class="links-container">
+            <a href="https://github.com/Amigom-MT" class="link-button" target="_blank">
+                GitHub
+            </a>
+            <a href="https://linkedin.com" class="link-button" target="_blank">
+                LinkedIn
+            </a>
+            <a href="https://twitter.com" class="link-button" target="_blank">
+                Twitter
+            </a>
+            <a href="mailto:contact@example.com" class="link-button">
+                Email
+            </a>
+        </div>
         
         <footer>
             <p>© 2025 Michel Amigo. Tous droits réservés.</p>
         </footer>
     </div>
-
-    <!-- Template pour les liens personnalisés -->
-    <template id="custom-link-template">
-        <div class="custom-link-item">
-            <div class="form-group">
-                <label>Nom :</label>
-                <input type="text" class="custom-name" placeholder="Nom du lien">
-            </div>
-            <div class="form-group">
-                <label>URL :</label>
-                <input type="url" class="custom-url" placeholder="https://">
-            </div>
-            <div class="form-group">
-                <label>Icône (emoji ou classe FontAwesome) :</label>
-                <input type="text" class="custom-icon" placeholder="🔗 ou fas fa-globe">
-            </div>
-            <button class="remove-custom-link" type="button">
-                <i class="fas fa-trash"></i>
-            </button>
-        </div>
-    </template>
 
     <script src="script.js"></script>
 </body>
